@@ -1,0 +1,91 @@
+body {
+  background-color: #121212;
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+#auth-container, #task-list-container, #points-section, #leaderboard-section, #music-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+}
+
+h2, h3 {
+  color: white;
+}
+
+button {
+  background-color: #2a2a2a;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #2a2a2a;
+  border: none;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid #4caf50;
+}
+
+#task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#task-list li {
+  background-color: #2a2a2a;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#task-list li button {
+  background-color: #ff0000;
+  width: auto;
+  padding: 5px 10px;
+}
+
+#task-list li button:hover {
+  background-color: #d10000;
+}
+
+#task-list li.task-completed {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+#music-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#points-section, #leaderboard-section, #music-container {
+  display: none; /* Hidden initially */
+}
