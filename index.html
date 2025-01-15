@@ -8,7 +8,150 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task List with Firebase</title>
+  <!-- Firebase Modules -->
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script type="module" src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <!-- Add your custom CSS here -->
+  <style>
+    /* Your existing CSS styles */
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
 
+    #auth-container, #task-list-container, #points-section, #leaderboard-section, #music-container {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    h2, h3 {
+      color: white;
+    }
+
+    button {
+      background-color: #2a2a2a;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #2a2a2a;
+      border: none;
+      color: white;
+    }
+
+    input:focus {
+      outline: none;
+      border: 2px solid #4caf50;
+    }
+
+    #task-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #task-list li {
+      background-color: #2a2a2a;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    #task-list li button {
+      background-color: #ff0000;
+      width: auto;
+      padding: 5px 10px;
+    }
+
+    #task-list li button:hover {
+      background-color: #d10000;
+    }
+
+    #task-list li.task-completed {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    #music-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #points-section, #leaderboard-section, #music-container {
+      display: none; /* Hidden initially */
+    }
+  </style>
+</head>
+<body>
+  <!-- Authentication Section -->
+  <div id="auth-container">
+    <h2>Login or Sign Up</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button id="login-button">Login</button>
+    <button id="signup-button">Sign Up</button>
+  </div>
+
+  <!-- Task List Section -->
+  <div id="task-list-container">
+    <h3>My Tasks</h3>
+    <ul id="task-list"></ul>
+    <input type="text" id="new-task" placeholder="New task" />
+    <button id="add-task-button">Add Task</button>
+  </div>
+
+  <!-- Points Section -->
+  <div id="points-section">
+    <h3>Points</h3>
+    <p id="points">0</p>
+  </div>
+
+  <!-- Leaderboard Section -->
+  <div id="leaderboard-section">
+    <h3>Leaderboard</h3>
+    <div id="leaderboard-list"></div>
+  </div>
+
+  <!-- Music Section -->
+  <div id="music-container">
+    <button id="spotify-btn">Open Spotify</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
 <!-- partial -->
   <script src='https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js'></script>
 <script src='https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js'></script>
